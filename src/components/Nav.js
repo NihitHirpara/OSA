@@ -129,7 +129,7 @@ const Navwrapper = styled.div`
     opacity: 0;
     transform: translateX(100%);
     /* transform-origin: top; */
-    transition: all 3s linear;
+    transition: all 1s linear;
   }
 
   .active .navbar-lists {
@@ -138,7 +138,7 @@ const Navwrapper = styled.div`
     transform: translateX(0);
     z-index: 999;
     transform-origin: right;
-    transition: all 3s linear;
+    transition: all 1s linear;
     background-color: black;
     .navbar-link {
       font-size: 4.2rem;

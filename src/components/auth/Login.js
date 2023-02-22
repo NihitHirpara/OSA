@@ -24,7 +24,6 @@ const Login = () => {
 
   //const previousURL = useSelector(selectPreviousURL);
   const navigate = useNavigate();
-
   // const redirectUser = () => {
   //   if (previousURL.includes("cart")) {
   //     return navigate("/cart");

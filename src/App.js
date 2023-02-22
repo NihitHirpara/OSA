@@ -103,6 +103,7 @@ const App = () => {
             <Route path="*" element={<ErrorPage />} />
             <Route path="/shopping" element={<Shopping />} />
             <Route path="/creditcard" element={<Creditcard />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
         <Footer />
