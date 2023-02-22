@@ -1,7 +1,7 @@
 const filterReducer = (state, action) => {
     switch (action.type) {
       case "LOAD_FILTER_PRODUCTS":
-        let priceArr = action.payload.map((curElem) => curElem.price);
+        let priceArr = action.payload?.map((curElem) => curElem.price);
         console.log(
           "🚀 ~ file: filterReducer.js ~ line 5 ~ filterReducer ~ priceArr",
           priceArr
@@ -102,35 +102,35 @@ const filterReducer = (state, action) => {
         const { text, category, company, color, price } = state.filters;
   
         if (text) {
-          tempFilterProduct = tempFilterProduct.filter((curElem) => {
+          tempFilterProduct = tempFilterProduct?.filter((curElem) => {
             return curElem.name.toLowerCase().includes(text);
           });
         }
   
         if (category !== "all") {
-          tempFilterProduct = tempFilterProduct.filter(
+          tempFilterProduct = tempFilterProduct?.filter(
             (curElem) => curElem.category === category
           );
         }
   
         if (company !== "all") {
-          tempFilterProduct = tempFilterProduct.filter(
+          tempFilterProduct = tempFilterProduct?.filter(
             (curElem) => curElem.company.toLowerCase() === company.toLowerCase()
           );
         }
   
         if (color !== "all") {
-          tempFilterProduct = tempFilterProduct.filter((curElem) =>
+          tempFilterProduct = tempFilterProduct?.filter((curElem) =>
             curElem.colors.includes(color)
           );
         }
   
         if (price === 0) {
-          tempFilterProduct = tempFilterProduct.filter(
+          tempFilterProduct = tempFilterProduct?.filter(
             (curElem) => curElem.price === price
           );
         } else {
-          tempFilterProduct = tempFilterProduct.filter(
+          tempFilterProduct = tempFilterProduct?.filter(
             (curElem) => curElem.price <= price
           );
         }
