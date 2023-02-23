@@ -8,7 +8,7 @@ import FormatPrice from "./Helpers/FormatPrice";
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   const navigate = useNavigate();
-  if (cart?.length === 0) {
+  if (cart.length === 0) {
     return (
       <EmptyDiv>
         <h3>No Cart in Item </h3>
