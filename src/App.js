@@ -2,11 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import {ToastContainer}  from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Component from "./components/routes/component";
 
@@ -47,19 +44,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
-        <div
-          style={{
-            position: "fixed",
-            zIndex: "9999",
-            top: "0",
-            width: "100%",
-            height: "100px",
-          }}
-        >
-          <ToastContainer/>
-
-          <Header />
-        </div>
+       
         <div style={{ marginTop: "100px" }}>
           <Routes>
             <Route path="/register" element={<Register />} />
@@ -67,7 +52,7 @@ const App = () => {
             <Route path="*" exact element={<Component/>} />
           </Routes>
         </div>
-        <Footer />
+       
       </Router>
       
     </ThemeProvider>
