@@ -1,7 +1,7 @@
 const filterReducer = (state, action) => {
     switch (action.type) {
       case "LOAD_FILTER_PRODUCTS":
-        let priceArr = action.payload?.map((curElem) => curElem.price);
+        let priceArr = action.payload.map((curElem) => curElem.price);
         console.log(
           "🚀 ~ file: filterReducer.js ~ line 5 ~ filterReducer ~ priceArr",
           priceArr

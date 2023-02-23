@@ -42,8 +42,7 @@ const Login = () => {
         toast.success("Login Successful...");
        // redirectUser();
         navigate('/') 
-        
-      
+        localStorage.setItem('login',true)    
       })
       .catch((error) => {
         setIsLoading(false);
@@ -59,6 +58,7 @@ const Login = () => {
          //const user = result.user;
         toast.success("Login Successfully");
         //redirectUser();
+        localStorage.setItem('login',true) 
         navigate('/')
       })
       .catch((error) => {
@@ -111,7 +111,7 @@ const Login = () => {
           </button>
           <span className="register">
             <p style={{opacity:'0.6'}}>Don't have an account?</p>
-            <Link to="/register" replace>Register</Link>
+            <Link to={"/register"} replace>Register</Link>
           </span>
         </div>
       </Card>

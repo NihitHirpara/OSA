@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,NavLink } from "react-router-dom";
+import { Link,NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
@@ -171,7 +171,7 @@ const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
   const [displayName, setdisplayName] = useState("");
   const { total_item } = useCartContext();
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch(); 
 
 
@@ -206,7 +206,8 @@ const Nav = () => {
     signOut(auth)
       .then(() => {
         toast.success("Logout successfully.");
-        // navigate("/login");
+        localStorage.setItem('login',false)
+        navigate("/login");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -228,15 +229,6 @@ const Nav = () => {
               Home
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              to="/about"
-              className="navbar-link "
-              onClick={() => setMenuIcon(false)}
-            >
-              About
-            </NavLink>
-          </li> */}
           <li>
             <NavLink
               to="/products"
@@ -261,13 +253,6 @@ const Nav = () => {
               <span className="cart-total--item"> {total_item} </span>
             </NavLink>
           </li>
-
-          {/* <li>
-            <NavLink to="/login" className="navbar-link " onClick={() => setMenuIcon(false)}>
-              <span>Log in</span>
-            </NavLink>
-          </li> */}
-          
           <Link to="/home" style={{ color: "#ff7722" }}>
             <FaUserCircle size={16} />
             Hi, {displayName}
@@ -278,11 +263,6 @@ const Nav = () => {
               <span>Logout</span>
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/register" className="navbar-link ">
-              <span>Register</span>
-            </NavLink>
-          </li> */}
         </ul>
 
         {/* two button for open and close of menu */}
