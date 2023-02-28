@@ -2,12 +2,12 @@ const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
     // tackle the existing product
-    let existingProduct = state.cart?.find(
+    let existingProduct = state.cart.find(
       (curItem) => curItem.id === id + color
     );
 
     if (existingProduct) {
-      let updatedProduct = state.cart?.map((curElem) => {
+      let updatedProduct = state.cart.map((curElem) => {
         if (curElem.id === id + color) {
           let newAmount = curElem.amount + amount;
 
@@ -46,7 +46,7 @@ const cartReducer = (state, action) => {
 
   // to set the increment and decrement
   if (action.type === "SET_DECREMENT") {
-    let updatedProduct = state?.cart?.map((curElem) => {
+    let updatedProduct = state.cart.map((curElem) => {
       if (curElem.id === action.payload) {
         let decAmount = curElem.amount - 1;
 
@@ -66,7 +66,7 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "SET_INCREMENT") {
-    let updatedProduct = state?.cart?.map((curElem) => {
+    let updatedProduct = state.cart.map((curElem) => {
       if (curElem.id === action.payload) {
         let incAmount = curElem.amount + 1;
 
@@ -86,7 +86,7 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "REMOVE_ITEM") {
-    let updatedCart = state?.cart?.filter(
+    let updatedCart = state.cart.filter(
       (curItem) => curItem.id !== action.payload
     );
     return {
@@ -104,7 +104,7 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "CART_TOTAL_ITEM") {
-    let updatedItemVal = state?.cart?.reduce((initialVal, curElem) => {
+    let updatedItemVal = state.cart?.reduce((initialVal, curElem) => {
       let { amount } = curElem;
 
       initialVal = initialVal + amount;
@@ -118,7 +118,7 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "CART_TOTAL_PRICE") {
-    let total_price = state?.cart?.reduce((initialVal, curElem) => {
+    let total_price = state.cart?.reduce((initialVal, curElem) => {
       let { price, amount } = curElem;
 
       initialVal = initialVal + price * amount;
