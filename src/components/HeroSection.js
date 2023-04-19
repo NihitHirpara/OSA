@@ -90,7 +90,7 @@ const Wrapper = styled.section`
     //   left: 50%;
     //   top: 11rem;
     //   z-index: -1;
-    }
+    //}
   }
   .imge-style {
     width: 100%;
@@ -103,7 +103,11 @@ const Wrapper = styled.section`
       transform: translateY(-10px);
     }
   }
-
+  @media (max-width:1200px){
+    Button{
+      margin-bottom: 20px;
+    }
+  }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid {
       gap: 10rem;

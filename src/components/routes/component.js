@@ -13,6 +13,7 @@ import ProtectedRoute from './ProtectedRoute'
 import { ToastContainer } from 'react-toastify'
 import Header from '../Header'
 import Footer from '../Footer'
+import Myorder from '../Myorder'
 
 
 function Component() {
@@ -42,6 +43,7 @@ function Component() {
             <Route path="/reset" element={<Reset />} />
             <Route path="*" element={<ErrorPage />} />
             <Route path="/shopping" element={<Shopping />} />
+            <Route path="/myorder" element={<Myorder />} />
             <Route path="/creditcard" element={<Creditcard />} />
         </Routes>
         <Footer />

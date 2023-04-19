@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <MainHeader>
       <NavLink to="/">
-        <img src="./images/main-logo.png" alt="my logo img" style={{width:'300px',height:'140px'}} />
+        <img src="./images/main-logo.png" alt="my logo img" style={{width:'300px',height:'140px'}} className="main-logo"/>
       </NavLink>
       <Nav />
     </MainHeader>
@@ -26,5 +26,13 @@ const MainHeader = styled.header`
   .logo {
     height: 5rem;
   }
+
+@media (max-width:1200px){
+  .main-logo{
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
 `;
 export default Header;

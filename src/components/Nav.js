@@ -85,7 +85,12 @@ const Navwrapper = styled.div`
   font-size: 1.4rem;
   padding: 0.8rem 1.4rem;
 }
+@media (max-width:1000px){
+  .navbar-lists{
+    gap: 2.5rem;
+  }
 
+}
 @media (max-width: ${({ theme }) => theme.media.mobile}) {
   .mobile-navbar-btn {
     display: inline-block;
@@ -230,6 +235,11 @@ const Nav = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/myorder" className="navbar-link " onClick={() => setMenuIcon(false)} >
+              <span>Myorder</span>
+            </NavLink>
+          </li>
+          <li>
             <NavLink
               to="/products"
               className="navbar-link "
@@ -263,6 +273,8 @@ const Nav = () => {
               <span>Logout</span>
             </NavLink>
           </li>
+
+         
         </ul>
 
         {/* two button for open and close of menu */}
