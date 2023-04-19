@@ -248,13 +248,13 @@ const Nav = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+            <NavLink to="/cart" className="navbar-link cart-trolley--link"  onClick={() => setMenuIcon(false)}>
               <FiShoppingCart className="cart-trolley" />
               <span className="cart-total--item"> {total_item} </span>
             </NavLink>
           </li>
-          <Link to="/home" style={{ color: "#ff7722" }}>
-            <FaUserCircle size={16} />
+          <Link to="/home" style={{ color: "#ff7722", display:'flex' , alignItems:'center'}}>
+            <FaUserCircle size={16} style={{marginRight:'5px'}} />
             Hi, {displayName}
           </Link>
 
