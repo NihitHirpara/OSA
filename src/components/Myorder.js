@@ -6,7 +6,7 @@ import { useCartContext } from "../context/cart_context";
 const Wrapper = styled.div`
   .heading {
     text-align: center;
-    margin-top: 40px;
+    padding-top: 60px;
   }
   .img-section {
     width: 5rem;
@@ -15,63 +15,77 @@ const Wrapper = styled.div`
   p {
     font-size: 30px;
     text-align: start;
+    color: black;
   }
-  .myorder-section {
+  ul {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  .img-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-  }
-  .cartempty{
-    font-size: 4.2rem;
-    text-transform: capitalize;
-    font-weight: 300;
   }
 `;
 
 const Myorder = () => {
-  const { cart, name, image, amount, total_price, shipping_fee } = useCartContext();
+  const { cart} =
+    useCartContext();
+  console.log(cart, "/.....");
   if (cart?.length === 0) {
     return (
-        <h3 style={{fontSize:'4.2rem',textAlign:'center',textTransform:'capitalize',fontWeight:'300'}}>No Cart in Item </h3>
+      <h3
+        style={{
+          fontSize: "4.2rem",
+          textAlign: "center",
+          textTransform: "capitalize",
+          fontWeight: "300",
+        }}
+      >
+        No Cart in Item{" "}
+      </h3>
     );
   }
   return (
     <Wrapper>
-      <div >
+      <div>
         <h1 className="heading">Myorder</h1>
-        <div className="myorder-section">
-        <div>
-          <p>
-            item:
-            <p>{name}</p>
-          </p>
-        </div>
-        <div>
-          <p>
-            order total:
-            <p>
-              <FormatPrice
-                price={
-                  cart.length === 0 ? total_price : shipping_fee + total_price
-                }
-              />
-            </p>
-          </p>
-        </div>
-        <div>
-          <p>
-            Quantity: <p>{amount}</p>
-          </p>
-          <p></p>
-        </div>
-        <div>
-          <p>image:</p>
-          <img src={image} alt="" srcset="" className="img-section" />
-        </div>
-        </div>
+      </div>
+      <div>
+        {cart.map((item) => (
+          <ul>
+            <li>
+              <p>
+                item: <p>{item.name}</p>{" "}
+              </p>
+            </li>
+            <li>
+              <p className="img-section">
+                image:
+                <img
+                  src={item.image}
+                  alt=""
+                  srcset=""
+                  className="img-section"
+                />
+              </p>
+            </li>
+            <li>
+              <p>
+                order total:
+                <p>
+                  <FormatPrice price={item.price * item.amount} />
+                </p>
+              </p>
+            </li>
+            <li>
+              <p>
+                Quantity: <p>{item.amount}</p>{" "}
+              </p>
+            </li>
+          </ul>
+        ))}
       </div>
     </Wrapper>
   );
