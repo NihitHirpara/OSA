@@ -27,11 +27,30 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media (max-width: 767px) {
+    ul {
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      gap: 15px;
+    }
+
+    .img-section {
+      flex-direction: row;
+    }
+    .img-data {
+      margin-left: -70px;
+    }
+
+    p {
+      display: inline-flex;
+    }
+  }
 `;
 
 const Myorder = () => {
-  const { cart} =
-    useCartContext();
+  const { cart } = useCartContext();
   console.log(cart, "/.....");
   if (cart?.length === 0) {
     return (
@@ -60,7 +79,7 @@ const Myorder = () => {
                 item: <p>{item.name}</p>{" "}
               </p>
             </li>
-            <li>
+            <li className="img-data">
               <p className="img-section">
                 image:
                 <img
